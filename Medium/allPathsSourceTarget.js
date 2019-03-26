@@ -2,46 +2,22 @@
  * @param {number[][]} graph
  * @return {number[][]}
  */
-var allPathsSourceTarget = function(graph) {
-  let totalPaths = [];
-  let path = [];
-
-  //Starting point
-  path.push(0);
-
-  const dfsSearch = node => {
-    //If the node is
+const allPathsSourceTarget = graph => {
+  let output = [];
+  const traverse = (node, path = [0]) => {
     if (node === graph.length - 1) {
-      totalPaths.push(path.slice(0));
+      output.push(path);
     } else {
-      for (neighbor of graph[node]) {
-        path.push(neighbor);
-        dfsSearch(neighbor);
-        path.pop();
+      for (node of graph[node]) {
+        traverse(node, path.concat(node));
       }
     }
   };
-  dfsSearch(0);
-  return totalPaths;
-};
-
-/**
- * @param {number[][]} graph
- * @return {number[][]}
- */
-var allPathsSourceTarget = function(graph) {
-  let result = [];
-  let visited = {};
-
-  const traverse = node => {
-    if (!visited[node]) {
-      visited[node] = true;
-    }
-  };
+  traverse(0);
+  return output;
 };
 
 /*
-
 Given a directed, acyclic graph of N nodes.  Find all possible paths from node 0 to node N-1, and return them in any order.
 The graph is given as follows:  the nodes are 0, 1, ..., graph.length - 1.  graph[i] is a list of all nodes j for which the 
 edge (i, j) exists.
