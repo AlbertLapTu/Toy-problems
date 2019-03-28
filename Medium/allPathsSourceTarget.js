@@ -4,6 +4,7 @@
  */
 const allPathsSourceTarget = graph => {
   let output = [];
+
   const traverse = (node, path = [0]) => {
     if (node === graph.length - 1) {
       output.push(path);
