@@ -1,23 +1,11 @@
-let arr = [
-  'test.email+alex@leetcode.com',
-  'test.e.mail+bob.cathy@leetcode.com',
-  'testemail+david@lee.tcode.com',
-];
-
-const validateEmail = array => {
-  let valid = 0;
-  let uniques = new Set();
-
-  for (email of array) {
-    let domainName = email.split('@')[1];
-    let userName = email.split('@')[0];
-    let userNameNoPlus = userName.split('+')[0];
-    let noPeriods = userName.split('.').join('');
-
-    uniques.add(`${noPeriods}@${domainName}`);
+var numUniqueEmails = function(emails) {
+  let output = [];
+  for (let i = 0; i < emails.length; i++) {
+    let local = emails[i].split('@')[0];
+    let domain = emails[i].split('@')[1];
+    let ignorePlus = local.split('+')[0];
+    let joinDots = ignorePlus.split('.').join('');
+    output.push(`${joinDots}@${domain}`);
   }
-  console.log(uniques);
-  return uniques.size;
+  return new Set(output).size;
 };
-
-validateEmail(arr);
