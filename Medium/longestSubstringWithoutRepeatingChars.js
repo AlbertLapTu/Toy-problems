@@ -12,14 +12,20 @@ const lengthOfLongestSubstring = str => {
   //J will be the faster pointer
   //I will be the slower pointer
 
+  //While we're not at the end of the string length
   while (j < str.length) {
+    //If the hashMap contains the character
     if (hashMap[str[j]]) {
-      //You find the character, so you start moving the I pointer by setting all it's values to null;
+      //We've reached the longest window of unique characters
+      //Start moving firstPointer
       hashMap[charAtI] = null;
       i++;
     } else {
+      //Set character to true, as it is unique.
       hashMap[str[j]] = true;
+      //Calculate the max (remember about adding 1 due to 0 index)
       max = Math.max(maxSubstring, j - 1 + 1);
+      //Move J along the window
       j++;
     }
   }
