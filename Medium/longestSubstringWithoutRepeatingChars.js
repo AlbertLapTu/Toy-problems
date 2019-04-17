@@ -3,31 +3,28 @@
  * @return {number}
  */
 
-const lengthOfLongestSubstring = str => {
-  let hashMap = {};
-  let maxSubstring = 0;
-  let i = 0;
-  let j = 0;
-
-  //J will be the faster pointer
-  //I will be the slower pointer
+const lengthOfLargestSubstring = str => {
+  let slowPointer = 0;
+  let fastPointer = 0;
+  let max = 0;
+  let hash = {};
 
   //While we're not at the end of the string length
-  while (j < str.length) {
-    //If the hashMap contains the character
-    if (hashMap[str[j]]) {
-      //We've reached the longest window of unique characters
-      //Start moving firstPointer
-      hashMap[charAtI] = null;
-      i++;
+  while (fastPointer < str.length) {
+    //If the character is not in the hashMap
+    if (!hash[str[fastPointer]]) {
+      //Set the character value to be true
+      hash[str[fastPointer]] = true;
+      //Find the max up until this character, converting out of 0-indexing
+      max = Math.max(max, fastPointer - slowPointer + 1);
+      //Expand the window
+      fastPointer++;
     } else {
-      //Set character to true, as it is unique.
-      hashMap[str[j]] = true;
-      //Calculate the max (remember about adding 1 due to 0 index)
-      max = Math.max(maxSubstring, j - 1 + 1);
-      //Move J along the window
-      j++;
+      //We found a duplicate cahracter, so we set to null
+      hash[str[slowPointer]] = null;
+      //Move the slow pointer
+      slowPointer++;
     }
   }
-  return maxSubstring;
+  return max;
 };
