@@ -28,7 +28,7 @@ Iterate over the number
 
 
 Time complexity: (O^2)
-Space: O(n) to allocate space for number string array
+Space: O(1). Maximum value input received will be 10^8, therefore mem. allocation of array length 10.
 */
 
 const maximumSwap = num => {
