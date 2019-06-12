@@ -24,6 +24,8 @@ Approach:
 Big hint here is the time constraint of n log n. Immediately convert the linked list into a sorted array
 to satisfy the n log n constraint. Construct a new linked list after iterating over the sorted array. 
 
+UPDATE: This asks for constant space in which this solution does not satisfy. 
+
 */
 var sortList = function(head) {
   let arr = [];
