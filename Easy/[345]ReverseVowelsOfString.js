@@ -5,7 +5,6 @@
 
 var reverseVowels = function(s) {
   let splitStr = s.split('');
-  let length = splitStr.length;
   let slow = 0;
   let fast = splitStr.length - 1;
 
