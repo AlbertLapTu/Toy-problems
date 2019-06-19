@@ -2,66 +2,45 @@
  * @param {string} s
  * @param {string} t
  * @return {string}
- * 
- * 
- * 
- * Given a string S and a string T, find the minimum window in S which will contain all the characters in T in complexity O(n).
-
-Example:
-
-Input: S = "ADOBECODEBANC", T = "ABC"
-Output: "BANC"
-*/
-
-Object.prototype.size = obj => {
-  let size = 0;
-
-  for (let key in obj) {
-    if (obj.hasOwnProperty(key)) {
-      size++;
-    }
-  }
-  return size;
-};
-
-var minWindow = function(s, t) {
-  let map = {};
-  let solution = '';
-
-  for (letter of t) {
-    !map[letter] ? (map[letter] = 1) : map[letter]++;
+ */
+const minWindow = (s, t) => {
+  let dict = {};
+  for (let char of t) {
+    !dict[char] ? (dict[char] = 1) : dict[char]++;
   }
 
+  let counter = t.length;
   let start = 0;
   let end = 0;
-  let counter = Object.size(map);
-  let longest;
+  let startWindow = 0;
+  let endWindow = 0;
+  let distance = Number.MAX_SAFE_INTEGER;
 
-  while (start < s.length) {
-    let endPointerChar = s[end]; //Currently pointing at D
-
-    //If we find end pointer's character in my map, decrease the count
-    if (map[endPointerChar]) {
-      map[endPointerChar]--;
-      if (map[endPointerChar] === 0) {
-        counter--;
-      }
+  while (end < s.length) {
+    let char = s[end];
+    if (dict[char] > 0) {
+      counter--;
     }
-    end++;
+
+    if (dict[char] !== undefined) {
+      dict[char]--;
+    }
 
     while (counter === 0) {
-      // TODO: HANDLE BASE CASE IF END-start < t.length
+      let temp = s[start];
 
-      let firstPointerChar = s[start];
-
-      if (map[firstPointerChar]) {
-        map[firstPointerChar]--;
-        if (map[firstPointerChar] === 0) {
-          counter--;
-        }
+      if (end - start < distance) {
+        distance = end - start;
+        startWindow = start;
+        endWindow = end;
       }
+      if (dict[temp] === 0) {
+        counter++;
+      }
+      if (dict[temp] < 1) dict[temp]++;
       start++;
     }
+    end++;
   }
-  return solution;
+  return distance === Number.MAX_SAFE_INTEGER ? '' : s.slice(startWindow, endWindow + 1);
 };
