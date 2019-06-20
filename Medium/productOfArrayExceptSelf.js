@@ -14,7 +14,9 @@ Note: Please solve it without division and in O(n).
 Attempt 1: Find the product of the whole array on first scan. Scan again, and divide each element by the 
 total product. Can't implement it this way due to the division constraint. 
 
-Attempt 2: Scan over the array from left to right. 
+Attempt 2: Scan over the array from left to right. Start from the left, and add the products into output
+while updating your current product. Start from the right, and scan to the left while updating product
+and multiplying what you have in the output. 
 
  */
 var productExceptSelf = function(nums) {
