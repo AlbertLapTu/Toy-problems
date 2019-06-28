@@ -31,29 +31,9 @@ Input:
 ]
 Output: true
 */
-var isValidSudoku = function(board) {
-  for (let i = 0; i < board.length; i++) {
-    console.log(board[i], 'i piece');
-    for (let j = 1; j < board.length - 1; j++) {
-      console.log(board[j], 'j piece');
-    }
-  }
-};
 
-var validRowChecker = array => {
-  let counter = {};
-  for (let i = 0; i < array.length; i++) {
-    if (Number(array[i]) && !counter[array[i]]) {
-      counter[array[i]] = 1;
-    } else if (Number(array[i]) && counter[array[i]]) {
-      counter[array[i]]++;
-    }
-  }
-  return Object.values(counter).every(val => val > 2);
-};
-
-let graph = [
-  ['5', '3', '.', '.', '7', '.', '.', '.', '.'],
+const board = [
+  ['5', '3', '3', '.', '7', '.', '.', '.', '.'],
   ['6', '.', '.', '1', '9', '5', '.', '.', '.'],
   ['.', '9', '8', '.', '.', '.', '.', '6', '.'],
   ['8', '.', '.', '.', '6', '.', '.', '.', '3'],
@@ -61,11 +41,70 @@ let graph = [
   ['7', '.', '.', '.', '2', '.', '.', '.', '6'],
   ['.', '6', '.', '.', '.', '.', '2', '8', '.'],
   ['.', '.', '.', '4', '1', '9', '.', '.', '5'],
-  ['.', '.', '.', '.', '8', '.', '.', '7', '9'],
+  ['.', '.', '.', '.', '8', '.', '.', '7', '9']
 ];
 
-validColumnChecker(graph);
+const isValidSudoku = board => {
+  for (let row = 0; row < board.length; row++) {
+    for (let col = 0; col < board[row].length; col++) {
+      let currentVal = board[row][col];
+      if (currentVal === '.') continue;
 
-//Helper to take in a row, and check for duplicates
-//Helper to take in a column, and check for duplicates
-//Helper to take in a 3x3 grid and check for duplicates
+      if (validateRows && validateCols && validateBox) {
+        return true;
+      }
+    }
+  }
+  return false;
+};
+
+const validateRows = (board, row) => {
+  let rowSet = new Set();
+
+  for (let i = 0; i < board[row].length; i++) {
+    if (board[row][i] === '.') continue;
+    let boardVal = board[row][i];
+
+    if (!rowSet.has(boardVal)) {
+      rowSet.add(boardVal);
+    } else {
+      return false;
+    }
+  }
+  return true;
+};
+
+const validateCols = (board, row, col) => {
+  let colSet = new Set();
+
+  for (let i = col; i < board[row].length; i++) {
+    if (board[i][row] === '.') continue;
+    let colValue = board[i][row];
+
+    if (!colSet.has(colValue)) {
+      colSet.add(colValue);
+    } else {
+      return false;
+    }
+  }
+  return true;
+};
+
+const validateBox = (board, row, col) => {
+  let boxSet = new Set();
+
+  for (let i = row; i < board[0].length / 3; i++) {
+    for (let j = col; j < board[i].length / 3; j++) {
+      if (board[i][j] === '.') continue;
+
+      if (!boxSet.has(board[i][j])) {
+        boxSet.add(board[i][j]);
+      } else {
+        return false;
+      }
+    }
+  }
+  return true;
+};
+
+console.log(isValidSudoku(board));
