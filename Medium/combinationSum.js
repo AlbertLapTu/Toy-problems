@@ -13,12 +13,7 @@ const combinationSum = (candidates, target) => {
 
     for (let i = index; i < candidates.length; i++) {
       if (target - candidates[i] >= 0) {
-        permutate(
-          candidates,
-          target - candidates[i],
-          i,
-          permutations.concat(candidates[i])
-        );
+        permutate(candidates, target - candidates[i], i, permutations.concat(candidates[i]));
       }
     }
   };
