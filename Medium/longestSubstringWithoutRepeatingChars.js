@@ -28,3 +28,21 @@ const lengthOfLargestSubstring = str => {
   }
   return max;
 };
+
+const lengthOfLargestSubstring = str => {
+  let windowHash = {};
+  let start = 0;
+  let longest = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    let char = str[i];
+
+    if (windowHash[char] >= start) {
+      start = windowHash[char] + 1;
+    }
+
+    windowHash[char] = i;
+    longest = Math.max(longest, i - start + 1);
+  }
+  return longest;
+};
