@@ -40,9 +40,10 @@ var pacificAtlantic = function(matrix) {
 
   const pacific = [];
   const atlantic = [];
-  const height = matrix.length - 1;
-  const width = matrix[0].length - 1;
+  const height = matrix.length;
+  const width = matrix[0].length;
 
+  //Build T/F arrayt ables
   for (let i = 0; i < height; i++) {
     let pacBool = [];
     let atlBool = [];
@@ -54,16 +55,35 @@ var pacificAtlantic = function(matrix) {
     atlantic.push(atlBool);
   }
 
-  //Iterate over pacific
-  //Iterate over atlantic
+  //On every value, call DFS function to see if current value can go all the way to the left and right
+  for (let row = 0; row < pacific.length; row++) {
+    for (let col = 0; col < pacific.length; col++) {
+      // Use negative number as height as all numbers on initial call will be greater
+      dfsHelper(matrix, row, col, pacific, -1);
+      dfsHelper(matrix, row, col, atlantic, -1);
+    }
+  }
+  console.log(pacific, 'pacific');
+  // console.log(atlantic, 'atlantic');
 };
 
 const dfsHelper = (matrix, row, col, oceanVisited, height) => {
-  if (row < 0 || col < 0 || row > matrix.length || col > matrix[row].length) return;
+  console.log(matrix[row][col], 'currentVal');
+  if (
+    row < 0 ||
+    col < 0 ||
+    row > matrix.length ||
+    col > matrix[row].length ||
+    oceanVisited[row][col] === false
+  ) {
+    return;
+  }
+
   let currentVal = matrix[row][col];
 
+  // Height is the previous value
   if (currentVal > height) {
-    return;
+    return false;
   } else {
     //Up right down left
     dfsHelper(matrix, row - 1, col, oceanVisited, currentVal);
