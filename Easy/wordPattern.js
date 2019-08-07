@@ -26,27 +26,21 @@ You may assume pattern contains only lowercase letters, and str contains lowerca
 */
 
 var wordPattern = function(pattern, str) {
-  str = str.split(' ');
+  let words = str.split(' ');
+  if (pattern.length !== str.length) return false;
 
-  if (str.length !== pattern.length) return false;
   let hashMap = {};
+  let wordMap = {};
 
-  for (let i = 0; i < str.length; i++) {
+  for (let i = 0; i < pattern.length; i++) {
     let char = pattern[i];
-    //If you have the word in the hash
-    if (hashMap[char]) {
-      //Check to see if it maps to word
-      if (hashMap[char] !== str[i]) {
-        return false;
-      }
-      //If it's not in the hash
+    let word = words[i];
+    if (!hashMap[char] && !wordMap[word]) {
+      hashMap[char] = word;
+      wordMap[word] = true;
     } else {
-      //If the word has been mapped to a character,return false
-      if (Object.values(hashMap).indexOf(str[i]) !== -1) {
+      if (hash[char] !== word) {
         return false;
-      } else {
-        //Otherwise, the word is unique and add to hash
-        hashMap[char] = str[i];
       }
     }
   }
