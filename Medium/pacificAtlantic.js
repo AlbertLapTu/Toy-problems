@@ -43,7 +43,7 @@ var pacificAtlantic = function(matrix) {
   const height = matrix.length;
   const width = matrix[0].length;
 
-  //Build T/F arrayt ables
+  //Build T/F array tables
   for (let i = 0; i < height; i++) {
     let pacBool = [];
     let atlBool = [];
@@ -56,41 +56,31 @@ var pacificAtlantic = function(matrix) {
   }
 
   //On every value, call DFS function to see if current value can go all the way to the left and right
-  for (let row = 0; row < pacific.length; row++) {
-    for (let col = 0; col < pacific.length; col++) {
-      // Use negative number as height as all numbers on initial call will be greater
-      dfsHelper(matrix, row, col, pacific, -1);
-      dfsHelper(matrix, row, col, atlantic, -1);
-    }
-  }
-  console.log(pacific, 'pacific');
-  // console.log(atlantic, 'atlantic');
+  // for (let row = 0; row < pacific.length; row++) {
+  //   for (let col = 0; col < pacific.length; col++) {
+  //     // Use negative number as height as all numbers on initial call will be greater
+  //     dfsHelper(matrix, row, col, pacific, -1);
+  //     dfsHelper(matrix, row, col, atlantic, -1);
+  //   }
+  // }
+  // console.log(pacific, 'pacific');
+  // // console.log(atlantic, 'atlantic');
 };
 
 const dfsHelper = (matrix, row, col, oceanVisited, height) => {
-  console.log(matrix[row][col], 'currentVal');
-  if (
-    row < 0 ||
-    col < 0 ||
-    row > matrix.length ||
-    col > matrix[row].length ||
-    oceanVisited[row][col] === false
-  ) {
+  if (row < 0 || col < 0 || row > matrix.length || col > matrix[row].length) {
     return;
   }
 
   let currentVal = matrix[row][col];
+  if (currentVal > height) return false;
 
-  // Height is the previous value
-  if (currentVal > height) {
-    return false;
-  } else {
-    //Up right down left
-    dfsHelper(matrix, row - 1, col, oceanVisited, currentVal);
-    dfsHelper(matrix, row, col + 1, oceanVisited, currentVal);
-    dfsHelper(matrix, row + 1, col, oceanVisited, currentVal);
-    dfsHelper(matrix, row, col - 1, oceanVisited, currentVal);
-  }
+  const up = dfsHelper(matrix, row - 1, col, oceanVisited, currentVal);
+  const right = dfsHelper(matrix, row, col + 1, oceanVisited, currentVal);
+  const down = dfsHelper(matrix, row + 1, col, oceanVisited, currentVal);
+  const left = dfsHelper(matrix, row, col - 1, oceanVisited, currentVal);
+
+  return true;
 };
 
 pacificAtlantic([
