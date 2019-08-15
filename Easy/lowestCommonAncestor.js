@@ -27,7 +27,6 @@ var lowestCommonAncestor = function(root, p, q) {
 
   //If both are truthy, return the root
   if (left && right) return root;
-
   return left ? left : right;
 };
 
