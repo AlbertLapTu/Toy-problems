@@ -1,2 +1,7 @@
 solutions
 .DS_STORE
+
+#Folders
+Challenges
+node_modules
+DS:Algos Masterclass
