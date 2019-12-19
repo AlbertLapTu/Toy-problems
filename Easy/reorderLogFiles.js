@@ -18,11 +18,11 @@ Output: ["let1 art can","let3 art zero","let2 own kit dig","dig1 8 1 5 1","dig2 
 
 */
 
-const reorderLogFiles = logs => {
+const reorderLogFiles = (logs) => {
   //Ignore the identifier
-  const body = s => s.slice(s.indexOf(' ') + 1);
+  const body = (s) => s.slice(s.indexOf(' ') + 1);
   // Validate if the string character is a digit
-  const isNum = c => /\d/.test(c);
+  const isNum = (c) => /\d/.test(c);
 
   const compare = (a, b) => {
     /**
