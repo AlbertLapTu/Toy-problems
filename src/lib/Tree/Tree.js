@@ -2,6 +2,8 @@ const TreeNode = require('./TreeNode');
 
 const Tree = {};
 
+Tree.nodes = [];
+
 /**
  * @description: Builds a BST given an an array. Array does not need to be sorted, as the sorting
  * operation will be taken care of on initialization.
