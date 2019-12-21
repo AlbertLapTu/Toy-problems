@@ -19,7 +19,7 @@
 //Example is ( ( ( ) )
 //object is {(: 3, ): 2}
 
-var minAddToMakeValid = parens => {
+var minAddToMakeValid = (parens) => {
   let hash = {};
   let splitParens = parens.split('');
   let counter = 0;

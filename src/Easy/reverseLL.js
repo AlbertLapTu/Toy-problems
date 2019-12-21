@@ -12,7 +12,7 @@
 
 // Iterative linked list
 // O(n)
-const reversedList = head => {
+const reversedList = (head) => {
   let prev = null;
   let next = head.next;
   let current = head;
@@ -28,7 +28,7 @@ const reversedList = head => {
   return prev;
 };
 
-const reverseList = head => {};
+const reverseList = (head) => {};
 
 // Initialize three pointers prev as NULL, curr as head and next as NULL.
 // Iterate trough the linked list. In loop, do following.

@@ -2,7 +2,7 @@
  * @param {number[][]} graph
  * @return {number[][]}
  */
-const allPathsSourceTarget = graph => {
+const allPathsSourceTarget = (graph) => {
   let output = [];
 
   const traverse = (node, path = [0]) => {

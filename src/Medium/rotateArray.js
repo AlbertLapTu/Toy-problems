@@ -11,7 +11,7 @@ will be n/2 - 1 more swaps that we need to do. We floor it in case we receive an
 
 */
 
-const rotate = matrix => {
+const rotate = (matrix) => {
   if (!matrix.length) return matrix;
   const len = matrix.length;
   const end = len - 1;

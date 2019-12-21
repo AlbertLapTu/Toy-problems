@@ -31,7 +31,7 @@ Time complexity: (O^2)
 Space: O(1). Maximum value input received will be 10^8, therefore mem. allocation of array length 10.
 */
 
-const maximumSwap = num => {
+const maximumSwap = (num) => {
   if (num === 0) return num;
   const numArr = num.toString().split('');
   let max, idx1, idx2;

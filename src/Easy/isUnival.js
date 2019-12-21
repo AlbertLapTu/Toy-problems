@@ -9,7 +9,7 @@
  * @param {TreeNode} root
  * @return {boolean}
  */
-const isUnivalTree = root => {
+const isUnivalTree = (root) => {
   let value = root.val;
   let isUnival = true;
 

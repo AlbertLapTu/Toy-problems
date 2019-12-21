@@ -38,7 +38,7 @@ var uniqueMorseRepresentations = function(words) {
     }
   }
 
-  const calculateMorseCode = word => {
+  const calculateMorseCode = (word) => {
     let split = word.split('');
     let result = '';
 

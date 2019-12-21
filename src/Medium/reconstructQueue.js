@@ -5,16 +5,16 @@
 var reconstructQueue = function(people) {
   //Sort from shortest to tallest
   // O(n log n) sorting operation
-  let sortedByHeight = people.slice().sort((a,b) => {
-      return a[0] - b[0];
+  let sortedByHeight = people.slice().sort((a, b) => {
+    return a[0] - b[0];
   });
-  let queue = []
+  let queue = [];
   let largest = sortedByHeight.pop();
   queue.push(largest);
 
   //Two pointers pointing at currentShortest, and currentTallest
   let start = 0;
-  let end = sortedByHeight[sortedByHeight.length-1]
+  let end = sortedByHeight[sortedByHeight.length - 1];
 
   while (sortedByHeight.length) {
     //If the height of the end is greater than the largest, update largest to that currentHeight
@@ -23,10 +23,12 @@ var reconstructQueue = function(people) {
       sortedByHeight(unshift(largest));
       end--;
     } else {
-      sorted
-    } 
+      sorted;
+    }
   }
 };
+
+/*
 
 Start by sorting the height from tallest to shortest
 
@@ -46,3 +48,5 @@ queue = [[7,1],]
 [h, k]
 h = height of the person
 k = number of people I should have in front of me with a h >= my height. 
+
+*/

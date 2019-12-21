@@ -49,7 +49,7 @@ const partitionString = (str, startIdx, partition, permutations) => {
   }
 };
 
-const isPalindrome = str => {
+const isPalindrome = (str) => {
   let start = 0;
   let end = str.length - 1;
 

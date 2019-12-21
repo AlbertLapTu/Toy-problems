@@ -13,7 +13,7 @@ var binaryTreePaths = function(root) {
   let results = [];
   let paths = [];
 
-  const traverseAndPrint = root => {
+  const traverseAndPrint = (root) => {
     if (root === null) {
       return null;
     }

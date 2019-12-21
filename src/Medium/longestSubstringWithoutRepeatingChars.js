@@ -3,7 +3,7 @@
  * @return {number}
  */
 
-const lengthOfLargestSubstring = str => {
+const lengthOfLargestSubstring = (str) => {
   let slowPointer = 0;
   let fastPointer = 0;
   let max = 0;
@@ -29,7 +29,7 @@ const lengthOfLargestSubstring = str => {
   return max;
 };
 
-const lengthOfLargestSubstring = str => {
+const lengthOfLargestSubstring = (str) => {
   let windowHash = {};
   let start = 0;
   let longest = 0;

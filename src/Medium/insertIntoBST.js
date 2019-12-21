@@ -12,19 +12,19 @@
  */
 var insertIntoBST = function(root, val) {
   if (val > root.val) {
-      if (root.right === null) {
-          root.right = new TreeNode(val);
-          return root;
-      } else {
-          insertIntoBST(root.right, val);
-      }
+    if (root.right === null) {
+      root.right = new TreeNode(val);
+      return root;
+    } else {
+      insertIntoBST(root.right, val);
+    }
   } else {
-      if (root.left === null) {
-          root.left = new TreeNode(val);
-          return root;
-      } else {
-          insertIntoBST(root.left, val);
-      }
+    if (root.left === null) {
+      root.left = new TreeNode(val);
+      return root;
+    } else {
+      insertIntoBST(root.left, val);
+    }
   }
   return root;
 };

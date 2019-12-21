@@ -41,10 +41,10 @@ const board = [
   ['7', '.', '.', '.', '2', '.', '.', '.', '6'],
   ['.', '6', '.', '.', '.', '.', '2', '8', '.'],
   ['.', '.', '.', '4', '1', '9', '.', '.', '5'],
-  ['.', '.', '.', '.', '8', '.', '.', '7', '9']
+  ['.', '.', '.', '.', '8', '.', '.', '7', '9'],
 ];
 
-const isValidSudoku = board => {
+const isValidSudoku = (board) => {
   for (let row = 0; row < board.length; row++) {
     for (let col = 0; col < board[row].length; col++) {
       let currentVal = board[row][col];

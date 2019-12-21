@@ -13,7 +13,7 @@
 var flipAndInvertImage = function(A) {
   const B = [];
   for (let arr of A) {
-    const reverseInvertedArr = arr.reverse().map(elem => (elem === 1 ? 0 : 1));
+    const reverseInvertedArr = arr.reverse().map((elem) => (elem === 1 ? 0 : 1));
     arr = reverseInvertedArr;
     B.push(reverseInvertedArr);
   }

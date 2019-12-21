@@ -15,7 +15,7 @@ const findTarget = (root, k) => {
   let set = new Set();
   let validate = false;
 
-  const traverse = root => {
+  const traverse = (root) => {
     if (!root) return;
 
     traverse(root.left);

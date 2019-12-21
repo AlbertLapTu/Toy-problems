@@ -7,15 +7,15 @@ var selfDividingNumbers = function(left, right) {
   }
 
   return Object.keys(hash)
-    .map(e => Number(e))
-    .filter(elem => isSelfDivisible(elem));
+    .map((e) => Number(e))
+    .filter((elem) => isSelfDivisible(elem));
 };
 
 var isSelfDivisible = function(num) {
   let numSplit = num
     .toString()
     .split('')
-    .map(e => Number(e));
+    .map((e) => Number(e));
   let isDivisible = true;
 
   for (let i = 0; i < numSplit.length; i++) {

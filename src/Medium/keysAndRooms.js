@@ -33,7 +33,7 @@ var canVisitAllRooms = function(rooms) {
   let visited = new Set();
   let stack = [];
 
-  const visitRoom = roomNumber => {
+  const visitRoom = (roomNumber) => {
     if (visited.has(roomNumber)) {
       return;
     }

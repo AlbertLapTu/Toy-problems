@@ -28,9 +28,7 @@ var rangeSumBST = function(root, L, R) {
   }
 
   if (root.val <= R && root.val >= L) {
-    return (
-      root.val + rangeSumBST(root.left, L, R) + rangeSumBST(root.right, L, R)
-    );
+    return root.val + rangeSumBST(root.left, L, R) + rangeSumBST(root.right, L, R);
   } else if (root.val > R) {
     return rangeSumBST(root.left, L, R);
   } else {

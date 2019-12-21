@@ -85,7 +85,7 @@ const peopleSort = (a, b) => {
   }
 };
 
-const reconstructQueue = people => {
+const reconstructQueue = (people) => {
   let peopleCopy = people.sort(peopleSort);
   let sorted = [];
 
@@ -95,4 +95,13 @@ const reconstructQueue = people => {
   return sorted;
 };
 
-console.log(reconstructQueue([[7, 0], [4, 4], [7, 1], [5, 0], [6, 1], [5, 2]]));
+console.log(
+  reconstructQueue([
+    [7, 0],
+    [4, 4],
+    [7, 1],
+    [5, 0],
+    [6, 1],
+    [5, 2],
+  ]),
+);

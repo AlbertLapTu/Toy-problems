@@ -57,12 +57,12 @@ var postorder = function(root) {
 var postorder = function(root) {
   let results = [];
 
-  const traverse = root => {
+  const traverse = (root) => {
     if (root === null) {
       return;
     }
 
-    root.children.forEach(node => traverse(node));
+    root.children.forEach((node) => traverse(node));
     results.push(root.val);
   };
 

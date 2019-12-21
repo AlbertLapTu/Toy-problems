@@ -30,7 +30,7 @@ var commonChars = function(A) {
   let originalCharacters = A[0].split('');
   for (let i = 1; i < A.length; i++) {
     let currentWord = A[i].split('');
-    originalCharacters = originalCharacters.filter(char => {
+    originalCharacters = originalCharacters.filter((char) => {
       let idx = currentWord.indexOf(char);
       return idx > -1 ? (currentWord[idx] = true) : false;
     });

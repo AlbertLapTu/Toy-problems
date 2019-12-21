@@ -9,7 +9,7 @@
  * @param {TreeNode} root
  * @return {number}
  */
-const sumNumbers = root => {
+const sumNumbers = (root) => {
   if (!root) return 0;
   const output = [];
 

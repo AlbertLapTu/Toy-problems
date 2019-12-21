@@ -6,7 +6,7 @@ var reverseWords = function(s) {
   let split = s.split(' ');
 
   return split
-    .map(word => {
+    .map((word) => {
       return word
         .split('')
         .reverse()

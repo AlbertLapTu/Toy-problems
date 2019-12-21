@@ -11,7 +11,7 @@
  */
 var increasingBST = function(root) {
   let output = [];
-  const traverse = root => {
+  const traverse = (root) => {
     if (!root) return null;
     traverse(root.left);
     output.push(root.val);

@@ -28,7 +28,7 @@ const swap = (arr, idx1, idx2) => {
 };
 
 //Checks lowercase and uppercase vowels.
-const isVowel = char => {
+const isVowel = (char) => {
   let charCode = char.charCodeAt();
   if (
     charCode === 97 ||

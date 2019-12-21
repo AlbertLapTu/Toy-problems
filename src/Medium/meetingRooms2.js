@@ -1,6 +1,6 @@
 var minMeetingRooms = function(intervals) {
-  const startTimes = intervals.map(el => el.start);
-  const endTimes = intervals.map(el => el.end);
+  const startTimes = intervals.map((el) => el.start);
+  const endTimes = intervals.map((el) => el.end);
   const len = intervals.length;
 
   startTimes.sort((a, b) => a - b);

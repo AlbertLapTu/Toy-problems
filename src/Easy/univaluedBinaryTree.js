@@ -13,7 +13,7 @@ var isUnivalTree = function(root) {
   let valToCheck = root.val;
   let isUnival = true;
 
-  const traverse = node => {
+  const traverse = (node) => {
     if (!node) {
       return;
     }

@@ -17,7 +17,7 @@ var largestValues = function(root) {
 
   traverse(root, 1);
 
-  Object.keys(levels).forEach(key => results.push(levels[key]));
+  Object.keys(levels).forEach((key) => results.push(levels[key]));
 
   return results;
 };

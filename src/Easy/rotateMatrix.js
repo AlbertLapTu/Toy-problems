@@ -1,8 +1,12 @@
 //Given an image represented by an NxN matrix, rotate the image by 90 degrees
 
-let matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+let matrix = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+];
 
-const rotateMatrix = matrix => {
+const rotateMatrix = (matrix) => {
   let output = [];
   for (let i = matrix[0].length - 1; 0 <= i; i--) {
     let trio = [];
