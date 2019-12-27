@@ -1,13 +1,16 @@
-const Tree = require('./Tree');
+const BST = require('./BST');
 
-describe('Tree - functions', () => {
+
+//TODO: Mock class
+describe('BST - functions', () => {
   let root;
+  const BST = new BST();
 
-  beforeAll(() => {
-    root = Tree.buildTree([-3, -5, 1, 5, 7, -10]);
+  test('Has an insert function', () => {
+    expect(BST).
   });
 
-  test('Tree - findNode function', () => {
+  test('Tree - has a findNode function', () => {
     expect(Tree).toHaveProperty('findNode');
     expect(Tree.findNode(root, 1)).toBe(true);
     expect(Tree.findNode(root, 10)).toBe(false);
