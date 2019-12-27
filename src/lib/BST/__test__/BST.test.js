@@ -34,4 +34,31 @@ describe('`BST - functions', () => {
 
     expect(root.result).toHaveLength(0);
   });
+
+  test('Should produce the correct in/pre/post order traversals', () => {
+    const root = new BST();
+
+    root.buildTree([-5, 10, -2, 1, 3]);
+    root.logInOrder(root.root);
+    expect(root.result).toEqual(expect.arrayContaining([-5, -2, 1, 3, 10]));
+    root.clearResults();
+
+    root.buildTree([-5, 10, -2, 1, 3]);
+    root.logPreOrder(root.root);
+    expect(root.result).toEqual(expect.arrayContaining([1, -2, -5, 10, 3]));
+    root.clearResults();
+
+    root.buildTree([-5, 10, -2, 1, 3]);
+    root.logPostOrder(root.root);
+    expect(root.result).toEqual(expect.arrayContaining([1, -2, -5, 10, 3]));
+    root.clearResults();
+  });
+
+  test('Should find a node if the node exists', () => {
+    const root = new BST();
+    root.buildTree([-5, 10, -2, 1, 3]);
+
+    expect(root.findNode(root.root, 11)).toBe(false);
+    expect(root.findNode(root.root, -2)).toBe(true);
+  });
 });
