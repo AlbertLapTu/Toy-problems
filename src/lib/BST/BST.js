@@ -1,4 +1,4 @@
-const TreeNode = require('../lib/Tree/TreeNode');
+const TreeNode = require('./TreeNode');
 
 class BinarySearchTree {
   constructor() {
