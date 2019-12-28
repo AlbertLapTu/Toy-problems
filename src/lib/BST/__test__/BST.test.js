@@ -1,6 +1,6 @@
 const BST = require('../BST');
 
-describe('`BST - functions', () => {
+describe('BST', () => {
   const BinarySearchTree = new BST();
 
   test('Has an insert function', () => {
