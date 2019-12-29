@@ -79,11 +79,10 @@ class BinarySearchTree {
     if (!root) return null;
 
     this.logInOrder(root.left);
-    console.log(root.val);
     this.result.push(root.val);
     this.logInOrder(root.right);
 
-    return this.results;
+    return this.result;
   }
 
   /**
@@ -95,9 +94,10 @@ class BinarySearchTree {
     if (!root) return null;
 
     this.result.push(root.val);
-    console.log(root.val);
     this.logPreOrder(root.left);
     this.logPreOrder(root.right);
+
+    return this.result;
   }
 
   /**
@@ -110,8 +110,9 @@ class BinarySearchTree {
 
     this.logPostOrder(root.left);
     this.logPostOrder(root.right);
-    console.log(root.val);
     this.result.push(root.val);
+
+    return this.result;
   }
 
   /**
@@ -127,7 +128,6 @@ class BinarySearchTree {
 
       for (let i = 0; i < size; i++) {
         const node = queue.shift();
-        console.log(node.val);
         this.result.push(node.val);
 
         if (node.left) {
