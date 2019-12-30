@@ -106,24 +106,15 @@ class MaxHeap {
   extractMax() {
     this.swap(this._heap, 0, this._heap.length - 1);
     const max = this._heap.pop();
-    this.bubbleDowns();
+    this.bubbleDown();
     return max;
   }
-}
 
-const maxHeap = new MaxHeap();
-maxHeap.insert(41);
-maxHeap.insert(39);
-maxHeap.insert(33);
-maxHeap.insert(18);
-maxHeap.insert(27);
-maxHeap.insert(12);
-maxHeap.insert(55);
-maxHeap.extractMax();
-console.log(maxHeap._heap);
-maxHeap.extractMax();
-console.log(maxHeap._heap);
-maxHeap.extractMax();
-console.log(maxHeap._heap);
+  build(arr) {
+    for (let i = 0; i < arr.length; i++) {
+      this.insert(arr[i]);
+    }
+  }
+}
 
 module.exports = MaxHeap;
