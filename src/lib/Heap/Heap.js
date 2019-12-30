@@ -65,8 +65,37 @@ class MaxHeap {
     }
   }
 
-  //TODO: Bubble down
-  bubbleDown() {}
+  bubbleDown() {
+    let idx = 0;
+    let swap = null;
+    const length = this._heap.length;
+    const element = this._heap[0];
+
+    while (true) {
+      let leftChild;
+      let rightChild;
+      let swap = null; // Index of item to swap
+
+      if (this.getLeftChildIdx(idx) < length) {
+        leftChild = this.getLeftChild(idx);
+        if (leftChild > element) {
+          swap = this.getLeftChildIdx(idx);
+        }
+      }
+
+      if (this.getRightChildIdx(idx) < length) {
+        rightChild = this.getRightChild(idx);
+        if ((swap === null && rightChild > element) || (swap !== null) & (rightChild > leftChild)) {
+          swap = this.getRightChildIdx(idx);
+        }
+      }
+
+      if (swap === null) break;
+
+      this.swap(this._heap, idx, swap);
+      idx = swap;
+    }
+  }
 
   swap(heap, i, j) {
     let temp = heap[i];
@@ -77,7 +106,7 @@ class MaxHeap {
   extractMax() {
     this.swap(this._heap, 0, this._heap.length - 1);
     const max = this._heap.pop();
-    this.bubbleDown();
+    this.bubbleDowns();
     return max;
   }
 }
@@ -90,6 +119,11 @@ maxHeap.insert(18);
 maxHeap.insert(27);
 maxHeap.insert(12);
 maxHeap.insert(55);
-console.log(maxHeap.extractMax());
+maxHeap.extractMax();
+console.log(maxHeap._heap);
+maxHeap.extractMax();
+console.log(maxHeap._heap);
+maxHeap.extractMax();
+console.log(maxHeap._heap);
 
 module.exports = MaxHeap;
