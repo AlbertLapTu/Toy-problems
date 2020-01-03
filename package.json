@@ -15,7 +15,8 @@
   "scripts": {
     "test": "jest",
     "lint:fix": "prettier --write **/*.js",
-    "lint": "prettier --check src/**/*.js"
+    "lint": "prettier --check src/**/*.js",
+    "add": "node src/util/builder.js"
   },
   "repository": {
     "type": "git",
