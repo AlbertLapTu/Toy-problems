@@ -1,3 +1,5 @@
+const util = require('../../util/utils');
+
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
@@ -37,3 +39,5 @@ const traverse = (node, hash, level) => {
 const findAvg = (arr, n) => {
   return arr.reduce((a, b) => a + b) / n;
 };
+
+util.makeIndexFile();

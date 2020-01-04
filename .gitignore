@@ -1,10 +1,11 @@
-solutions
+# Files
 .DS_STORE
+index.js
 
 #Folders
-Challenges
 node_modules
-DS:Algos Masterclass
 
 #Files
 package-lock.json
+client_secret.json
+config.js
