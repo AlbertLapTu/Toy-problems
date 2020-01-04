@@ -1,9 +1,11 @@
-solutions
+# Files
 .DS_STORE
+index.js
 
 #Folders
-Challenges
 node_modules
 
 #Files
 package-lock.json
+client_secret.json
+config.js
