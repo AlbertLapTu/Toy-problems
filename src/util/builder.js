@@ -13,11 +13,14 @@ builder.makeFolder = (directory) => {
 
 builder.makeIndexFile = (directory) => {
   const data = `module.exports = {
-    Date: ${new Date().toLocaleDateString()},
+    Date: "${new Date().toLocaleDateString()}",
     Problem: [PROBLEM_NAME],
     Link: [PROBLEM_LINK],
+    Time_spent: [TIME SPENT],
+    Times_visited: [TIMES VISITED],
+    Difficulty: [DIFFICULTY],
     Type: [PROBLEM_TYPE],
-    "Solved?": [Y/N],
+    Solved: [Y/N],
     Notes: [DESCRIPTION],
   }`;
 
@@ -41,7 +44,7 @@ builder.makePrimaryFile = (directory, primaryFile) => {
  */
 
 builder.prompt = async () => {
-  let directory;
+  let basePath = 'src/';
   let primaryFile;
 
   const rl = readline.createInterface({
@@ -51,13 +54,10 @@ builder.prompt = async () => {
 
   const directoryPrompt = () => {
     return new Promise((resolve, reject) => {
-      rl.question(
-        'What is the directory path? Ex: Easy/dirName or src/Medium/dirName: ',
-        (answer) => {
-          directory = answer;
-          resolve();
-        },
-      );
+      rl.question('What is the directory path? Ex: Easy/dirName or Medium/dirName: ', (answer) => {
+        basePath += answer;
+        resolve();
+      });
     });
   };
 
@@ -77,12 +77,12 @@ builder.prompt = async () => {
   await filePrompt();
   rl.close();
 
-  return [directory, primaryFile];
+  return [basePath, primaryFile];
 };
 
 /**
  *
- * @description: Scaffolds a file based on user input.
+ * @description: Scaffolds a toy problem file based on user input.
  */
 
 builder.build = async () => {
