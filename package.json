@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "A repo consisting of Toy Problems encountered online",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "google-spreadsheet": "^2.0.8"
+  },
   "devDependencies": {
     "eslint": "^6.7.2",
     "eslint-config-airbnb": "^18.0.1",
@@ -16,7 +18,8 @@
     "test": "jest",
     "lint:fix": "prettier --write **/*.js",
     "lint": "prettier --check src/**/*.js",
-    "add": "node src/util/builder.js"
+    "build": "node src/util/builder.js",
+    "update": "node src/util/updater.js"
   },
   "repository": {
     "type": "git",
