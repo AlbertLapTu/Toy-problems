@@ -15,7 +15,8 @@ The following command generates a primary "solution" file and secondary "index" 
 Solution file being the contents of the question that you solve.
 Index file being the contents you want to write to your Google sheet tracker.
 
-run `npm run add`
+run `npm run build`
 
-<!-- TODO: Add Writing to Google sheet functionality>
-run `npm run sheet`
+The next command requests the path of which file(s) you have just finished writing notes for, and will automatically update your google sheets. 
+
+run `npm run update`
