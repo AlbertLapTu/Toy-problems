@@ -14,14 +14,14 @@ builder.makeFolder = (directory) => {
 builder.makeIndexFile = (directory) => {
   const data = `module.exports = {
     Date: "${new Date().toLocaleDateString()}",
-    Problem: [PROBLEM_NAME],
-    Link: [PROBLEM_LINK],
+    Problem: "[PROBLEM_NAME]",
+    Link: "[PROBLEM_LINK]",
     Time_spent: [TIME SPENT],
     Times_visited: [TIMES VISITED],
-    Difficulty: [DIFFICULTY],
-    Type: [PROBLEM_TYPE],
-    Solved: [Y/N],
-    Notes: [DESCRIPTION],
+    Difficulty: "",
+    Type: "",
+    Solved: "",
+    Notes: "",
   }`;
 
   fs.writeFile(`${directory}/index.js`, data, (err) => {
