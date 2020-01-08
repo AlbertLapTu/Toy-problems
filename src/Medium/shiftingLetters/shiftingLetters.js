@@ -66,6 +66,16 @@ var shiftingLetters = function(S, shifts) {
   return S.join('');
 };
 
+/**
+ *
+ * @param {String} char
+ * @param {Number} val
+ *
+ * @description: This function handles wrapping of numbers.
+ *
+ * For the current character, subtract from the beginning of the alphabet and add the value in. Find the remainder using modulo,
+ * and add 97 to "wrap"
+ */
 function shiftChar(char, val) {
   let flippedChar = ((char.charCodeAt() - 97 + val) % 26) + 97;
 
