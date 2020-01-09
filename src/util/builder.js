@@ -48,9 +48,9 @@ builder.makeIndexFile = (directory) => {
  */
 
 builder.makePrimaryFile = (directory, primaryFile) => {
-  const data = `FILL ME OUT
+  const data = `function ${primaryFile}() {}
   
-module.exports = ;
+module.exports = ${primaryFile};
   `;
 
   fs.writeFile(`${directory}/${primaryFile}.js`, data, (err) => {
