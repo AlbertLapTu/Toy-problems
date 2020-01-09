@@ -3,8 +3,22 @@ const readline = require('readline');
 
 const builder = {};
 
+/**
+ * @param {String} directory - The directory in which the folder is to be created
+ * @description: Generates the problem folder
+ */
+
 builder.makeFolder = (directory) => {
   fs.mkdir(directory, (err) => {});
+};
+
+/**
+ * @param directory - The directory where the test folder is to be created in
+ * @description: Creates the test directory with pre-filled basic test.
+ */
+
+builder.makeTestDirectory = (directory) => {
+  fs.mkdir(`${directory}/__tests__`, (err) => {});
 };
 
 /**
@@ -34,13 +48,42 @@ builder.makeIndexFile = (directory) => {
  */
 
 builder.makePrimaryFile = (directory, primaryFile) => {
-  fs.writeFile(`${directory}/${primaryFile}.js`, 'FILL_ME_OUT', (err) => {
+  const data = `FILL ME OUT
+  
+module.exports = ;
+  `;
+
+  fs.writeFile(`${directory}/${primaryFile}.js`, data, (err) => {
     if (err) throw err;
   });
 };
 
 /**
- * @description:
+ * @param {string} directory: The directory of where to create the test file.
+ * E.g Easy/<Problem_Name> will create E.g Easy/<Problem_Name>/__tests__
+ * @param {string} primaryFile: The file name to generate the corresponding test file
+ */
+
+builder.makeTestFile = (directory, primaryFile) => {
+  const fileName = `${primaryFile}.test.js`;
+  const data = `const fn = require('../${primaryFile}');
+  
+  describe('[Insert title]', () => {
+    test('It should exist', () => {
+      expect(fn).toBeTruthy();
+    });
+
+    // Add more tests!
+  })
+  `;
+
+  fs.writeFile(`${directory}/__tests__/${fileName}`, data, (err) => {
+    if (err) throw err;
+  });
+};
+
+/**
+ * @description: Asks user which directory to place the file thats inputted in.
  */
 
 builder.prompt = async () => {
@@ -94,6 +137,8 @@ builder.build = async () => {
 
   builder.makeFolder(directory);
   builder.makeIndexFile(directory);
+  builder.makeTestDirectory(directory);
+  builder.makeTestFile(directory, primaryFile);
   builder.makePrimaryFile(directory, primaryFile);
 };
 
