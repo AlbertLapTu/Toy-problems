@@ -34,3 +34,5 @@ var replaceElements = function(arr) {
   arr[arr.length - 1] = -1;
   return arr;
 };
+
+module.exports = replaceElements;
