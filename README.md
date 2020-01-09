@@ -11,12 +11,13 @@ Going back and forth between an IDE and the Google drive interface to log my pro
 
 ### Instructions
 
-The following command generates a primary "solution" file and secondary "index" file to the directory you specificy.
+The following command generates a primary "solution" file, secondary "index" file, and a **tests** folder to the directory you specificy.
 Solution file being the contents of the question that you solve.
 Index file being the contents you want to write to your Google sheet tracker.
+**tests** containing the corresponding test file to test your work. All tests use jest as it's testing framework.
 
 run `npm run build`
 
-The next command requests the path of which file(s) you have just finished writing notes for, and will automatically update your google sheets. 
+The next command requests the path of which file(s) you have just finished writing notes for, and will automatically update your google sheets.
 
 run `npm run update`
