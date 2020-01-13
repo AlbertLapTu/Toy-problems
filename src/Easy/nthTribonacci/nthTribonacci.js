@@ -37,9 +37,9 @@ function tribonacci(n, hash = [0, 1, 1]) {
 
   if (hash[n]) {
     return hash[n];
+  } else {
+    hash[n] = tribonacci(n - 1, hash) + tribonacci(n - 2, hash) + tribonacci(n - 3, hash);
   }
-  /* eslint-disable no-param-reassign */
-  hash[n] = tribonacci(n - 1, hash) + tribonacci(n - 2, hash) + tribonacci(n - 3, hash);
 
   return hash[n];
 }
