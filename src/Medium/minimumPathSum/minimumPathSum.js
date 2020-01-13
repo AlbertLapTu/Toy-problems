@@ -22,11 +22,11 @@ Explanation: Because the path 1→3→1→1→1 minimizes the sum.
  * @return {number}
  */
 
-var minPathSum = function(grid) {
+const minPathSum = function(grid) {
   if (!grid.length) return [];
 
-  let width = grid[0].length;
-  let height = grid.length;
+  const width = grid[0].length;
+  const height = grid.length;
 
   for (let i = 0; i < height; i++) {
     for (let j = 0; j < width; j++) {
