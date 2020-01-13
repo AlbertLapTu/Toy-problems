@@ -20,14 +20,10 @@ function countSubstrings(s) {
   let count = 0;
 
   const expand = (i, j) => {
-    while (i >= 0 && j <= s.length) {
-      if (s[i] === s[j]) {
-        count++;
-        i--;
-        j++;
-      } else {
-        break;
-      }
+    while (i >= 0 && j <= s.length && s[i] === s[j]) {
+      count++;
+      i--;
+      j++;
     }
   };
 
