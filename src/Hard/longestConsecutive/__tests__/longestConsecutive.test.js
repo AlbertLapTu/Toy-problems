@@ -12,6 +12,6 @@ describe('Hard - 128. Longest Consecutive Sequence', () => {
 
     expect(fn(input1)).toBe(4);
     expect(fn(input2)).toBe(5);
-    expect(fn(input3)).tobe(3);
+    expect(fn(input3)).toBe(3);
   });
 });
