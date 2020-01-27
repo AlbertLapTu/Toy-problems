@@ -22,8 +22,6 @@ var removeDuplicatesII = function(s, k) {
       stack.push(new Freq(curr, 1));
       // If the top char equals current
     } else {
-      // Increment the amount of times its been seen
-      let times = top.frequency;
       // If we see the max, "delete".
       if (top.frequency + 1 === k) {
         stack.pop();
