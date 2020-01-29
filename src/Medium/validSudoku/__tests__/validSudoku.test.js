@@ -5,7 +5,7 @@ describe('[Insert title]', () => {
     expect(fn).toBeTruthy();
   });
 
-  test('Should validate a sudoku board', () => {
+  test.skip('Should validate a sudoku board', () => {
     const input1 = [
       ['5', '3', '.', '.', '7', '.', '.', '.', '.'],
       ['6', '.', '.', '1', '9', '5', '.', '.', '.'],
