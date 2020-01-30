@@ -4,6 +4,11 @@ index.js
 
 #Folders
 node_modules
+templates
+
+#Unsolved problems
+permutationsII
+investorSchedules
 
 #Files
 package-lock.json
