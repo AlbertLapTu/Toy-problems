@@ -20,7 +20,5 @@ module.exports = {
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
-    // Change this only if it's too long to make it a single
-    // 'multiline-ternary': ['error', 'always'],
   },
 };
