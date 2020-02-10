@@ -22,6 +22,9 @@ function frequencyQueries(queries) {
       hash[element]--;
     }
 
+    // Instead of iterating, we can store the frequencies of that element in a frequency array.
+    // We can use array indexing to see if the frequency in that array is greater than to figure out
+    // what number to push.
     if (operation === 3) {
       let flag = true;
       for (let key in hash) {
