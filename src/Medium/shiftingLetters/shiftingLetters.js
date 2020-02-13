@@ -45,6 +45,15 @@ var shiftingLetters = function(S, shifts) {
   return S.join('');
 };
 
+/**
+ *
+ * @param {string} char
+ * @param {integer} val
+ * @description: The initial expression of char.charCodeAt() - 97 calculates where in a constant
+ * length 26 array containing the alphabet does the character's index falls on. Add the value
+ * (ex. value can be 1560 or some large arbitrary number), and mod 26 in order for it to wrap
+ * around. Add the 97 back at the end to index it correctly since modulo will give the remainder.
+ */
 function shiftChar(char, val) {
   let flippedChar = ((char.charCodeAt() - 97 + val) % 26) + 97;
 
