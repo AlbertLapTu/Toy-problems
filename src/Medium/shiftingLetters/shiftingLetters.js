@@ -30,30 +30,21 @@ After shifting the first 3 letters of S by 9, we have "rpl", the answer.
 
 // Original solution O(n)^2
 
-var shiftingLetters = function(S, shifts) {
-  if (!S.length || !shifts.length) return '';
+// var shiftingLetters1 = function(S, shifts) {
+//   if (!S.length || !shifts.length) return '';
 
-  S = S.split('');
+//   S = S.split('');
 
-  for (let i = 0; i < shifts.length; i++) {
-    let amountToShift = shifts[i];
+//   for (let i = 0; i < shifts.length; i++) {
+//     let amountToShift = shifts[i];
 
-    for (let j = 0; j < i + 1; j++) {
-      S[j] = shiftChar(S[j], amountToShift);
-    }
-  }
-  return S.join('');
-};
+//     for (let j = 0; j < i + 1; j++) {
+//       S[j] = shiftChar(S[j], amountToShift);
+//     }
+//   }
+//   return S.join('');
+// };
 
-/**
- *
- * @param {string} char
- * @param {integer} val
- * @description: The initial expression of char.charCodeAt() - 97 calculates where in a constant
- * length 26 array containing the alphabet does the character's index falls on. Add the value
- * (ex. value can be 1560 or some large arbitrary number), and mod 26 in order for it to wrap
- * around. Add the 97 back at the end to index it correctly since modulo will give the remainder.
- */
 function shiftChar(char, val) {
   let flippedChar = ((char.charCodeAt() - 97 + val) % 26) + 97;
 
@@ -75,18 +66,4 @@ var shiftingLetters = function(S, shifts) {
   return S.join('');
 };
 
-/**
- *
- * @param {String} char
- * @param {Number} val
- *
- * @description: This function handles wrapping of numbers.
- *
- * For the current character, subtract from the beginning of the alphabet and add the value in. Find the remainder using modulo,
- * and add 97 to "wrap"
- */
-function shiftChar(char, val) {
-  let flippedChar = ((char.charCodeAt() - 97 + val) % 26) + 97;
-
-  return String.fromCharCode(flippedChar);
-}
+module.exports = shiftingLetters;
