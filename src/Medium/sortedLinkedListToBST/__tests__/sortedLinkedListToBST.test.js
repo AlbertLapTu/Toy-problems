@@ -12,12 +12,13 @@ describe('Medium - Convert sorted linked list to BST', () => {
     root.next.next = new ListNode(0);
     root.next.next.next = new ListNode(5);
     root.next.next.next.next = new ListNode(9);
-    root.next.next.next = new ListNode(11);
+    root.next.next.next.next.next = new ListNode(11);
 
     const result = fn(root);
 
-    expect(result.val).toBe(0);
-    expect(result.left.val).toBe(-3);
+    expect(result.val).toBe(5);
     expect(result.right.val).toBe(11);
+    expect(result.right.left.val).toBe(9);
+    expect(result.left.val).toBe(-3);
   });
 });
