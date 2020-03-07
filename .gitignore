@@ -9,6 +9,7 @@ templates
 #Unsolved problems
 permutationsII
 investorSchedules
+slidingBlocks
 
 #Files
 package-lock.json
